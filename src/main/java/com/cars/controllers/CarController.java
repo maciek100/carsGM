@@ -55,5 +55,10 @@ public class CarController {
         return carService.addAllCars(allNewCarsMono);
     }
 
+    @DeleteMapping("/remove/{id}")
+    public Mono<Car> deleteCar(@PathVariable("id") String id) {
+        return carService.deleteCar(id);
+    }
+
 
 }

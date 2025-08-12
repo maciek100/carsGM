@@ -39,4 +39,9 @@ public class CarService {
     public Mono<Integer> reportCarCount () {
         return carRepository.reportSize();
     }
+
+    public Mono<Car> deleteCar (String carId) {
+        return carRepository.deleteById(carId);
+    }
+
 }

@@ -82,7 +82,6 @@ public class CarRepository {
         });
     }
     public Mono<Car> deleteById(String targetId) {
-        //activeCars.removeIf(car -> car.id().equals(targetId));
         Optional<Car> carToRemove = activeCars.stream()
                 .filter(car -> car.id().equals(targetId))
                 .findFirst();
