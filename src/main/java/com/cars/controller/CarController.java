@@ -1,8 +1,8 @@
-package com.cars.controllers;
+package com.cars.controller;
 
 
 import com.cars.model.Car;
-import com.cars.services.CarService;
+import com.cars.service.CarService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;

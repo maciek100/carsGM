@@ -1,4 +1,4 @@
-package com.cars.services;
+package com.cars.service;
 
 import com.cars.model.Car;
 import com.cars.repository.CarRepository;
