@@ -2,7 +2,7 @@ This is a simple "demo" showing Reactor stream operations on cars.
 On the start it initializes the repository with a list of Car objects and allows
 the user to list, delete, and add new cars. On the top of it, it maintains
 the count of cars involved in all the operations.
-call to http://localhost:8080/actuator/stats would revile simple list:
+call to http://localhost:8080/actuator/stats would reveal simple list:
 {
   "Cars Initially": 38,
   "Cars Added": 2,
