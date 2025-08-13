@@ -42,17 +42,18 @@ public class CarController {
 
     @PostMapping("/add")
     public Mono<Car> addCar(@RequestBody Mono<Car> carMono) {
-        Mono<Car> uppercaseIdCar =  carMono
-                .map(car -> {
-                    String lowercaseId = car.id().toLowerCase();
-                    return new Car(lowercaseId, car.name());
-                });
-        return carService.addCar(uppercaseIdCar);
+        return carService.addCar(carMono
+                .map(car -> new Car(car.id().toLowerCase(), car.name())));
     }
 
     @PostMapping("/addAll")
     public Flux<Car> addAllCars(@RequestBody Mono<List<Car>> allNewCarsMono) {
-        return carService.addAllCars(allNewCarsMono);
+        Mono<List<Car>> sanitized = allNewCarsMono.map(list ->
+                list.stream()
+                        .map(car -> new Car(car.id().toLowerCase(), car.name()))
+                        .toList()
+        );
+        return carService.addAllCars(sanitized);
     }
 
     @DeleteMapping("/remove/{id}")
