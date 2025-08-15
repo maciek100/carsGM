@@ -51,15 +51,12 @@ public class CarRepository {
             new Car("car37", "Infinity"),
             new Car("car38", "Land Rover")
     );
-    private static List<Car> activeCars = new ArrayList<>();
-    //static {
-    //    allCars.stream()
-    //            .forEach(car -> activeCars.add(new Car(car.id(), car.name())));
-    //}
+    private static final List<Car> activeCars = new ArrayList<>();
 
     public CarRepository () {
         restore();
     }
+
     public Flux<Car> findAll() {
         return Flux.fromIterable(activeCars);
     }
